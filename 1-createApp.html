@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>1-createApp</title>
+</head>
+<body>
+  <div id="#app"></div>
+  <script>
+    function createAppAPI(render) {
+      const app = {
+        mount(rootContainer) {
+          console.log('基于根组件创建 vnode')
+          console.log(rootContainer,'rootContainer',render)
+        }
+      }
+      return app
+    }
+    function createApp(...args) {
+      return createAppAPI(...args)
+    }
+    const App = {
+      template:'<h1>我是h1</h1>'
+    }
+
+    const rootContainer = document.getElementById("#app")
+    createApp(App).mount(rootContainer)
+  </script>
+</body>
+</html>
