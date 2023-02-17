@@ -1,22 +1,21 @@
 ---
 theme: channing-cyan
 ---
-> 作者根据mini-vue学习的vue3源码。mini-vue介绍:只会涉及到核心逻辑，去除非核心逻辑，让代码更具备可读性，可以更好的理解。
+> 本文将介绍vue源码的目录结构以及怎么进行vue3代码的调试
 
 vue3源码地址 https://github.com/vuejs/core
-mini-vue源码地址 https://github.com/cuixiaorui/mini-vue.git
 
-## 下载源码
+## 下载代码
 ````
-git clone https://github.com/vuejs/core
+git clone https://github.com/vuejs/core.git
 ````
 
 ## 装包
 ````
 yarn
 ````
-## 了解源码位置
-> Vue 3和核心源码都在packages里面，并且是基于RollUp构建，其中每个目录代表的含义，如下所示：
+## 目录结构
+> Vue 3核心源码都在packages里面，并且是基于RollUp构建，其中每个目录代表的含义，如下所示：
 
 ├── packages              
 │   ├── compiler-core    // 核心编译器（平台无关）
@@ -38,10 +37,21 @@ yarn
 ## compiler和runtime区别
 
 ### compile
-我们可以理解为程序编绎时，是指我们写好的源代码在被编译成为目标文件这段时间，可以通俗的看成是我们写好的源代码在被构建工具转换成为最终可执行的文件这段时间，在这里可以理解为我们将.vue文件编绎成浏览器能识别的.js文件的一些工作。
+程序编绎时，是指我们写好的源代码在被编译成为目标文件这段时间，可以通俗的看成是我们写好的源代码在被构建工具转换成为最终可执行的文件这段时间，在这里可以理解为我们将.vue文件编绎成浏览器能识别的.js文件的一些工作。
 ### runtime
 我们可以理解为程序运行时，即是程序被编译了之后，在浏览器打开程序并运行它直到程序关闭的这段时间的系列处理。
 
+## 调试源代码
+### 启用source map
+打开`package.json`文件，dev脚本中添加`--sourcemap`配置,如下
+````
+"dev": "node scripts/dev.js --sourcemap"
+````
+![image.png](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/eef987d90ff64204bc70fc0c1e562b40~tplv-k3u1fbpfcp-watermark.image?)
+
+### 本地启动
+- 在vue根目录下执行`yarn dev`启动vue
+- 
 > 菜鸟认知，请多指教。
 
 下一篇，我们正式进入源码的学习。
